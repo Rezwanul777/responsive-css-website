@@ -1,11 +1,115 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Common css */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-body{
-    font-family: "Montserrat", sans-serif;
+body {
+	font-family: "Montserrat", sans-serif;
+}
+
+/* menu bar css */
+
+nav {
+	display: flex;
+	background-color: #1c2833;
+	height: 80px;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 50px 0px 80px;
+}
+
+.logo {
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+}
+
+nav ul {
+	display: flex;
+}
+
+nav ul li {
+	list-style-type: none;
+	margin: 0 8px;
+}
+nav ul li a {
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 500;
+	color: white;
+	padding: 7px 13px;
+	border-radius: 3px;
+	transition: 0.5s;
+	text-transform: uppercase;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+	background-color: #2267a8;
+}
+
+.menu-btn{
+    display: none;
+    font-size: 22px;
+    color:#fff;
+    cursor: pointer;
+}
+
+#click{
+    display: none
+}
+
+
+
+/* responsive work  */
+
+/* For nav bar */
+
+@media only screen and (max-width: 940px) {
+
+    .menu-btn{
+        display: block;
+    }
+	nav ul {
+		position: fixed;
+        left:-100%;
+        top: 80px;
+		height: 100vh;
+		width: 100%;
+		padding-top: 20px;
+		background-color: #1c2833;
+		flex-direction: column;
+		text-align: center;
+        transition: all 0.5s ease;
+	}
+
+	nav ul li {
+		margin: 40px 0;
+	}
+
+	nav ul li a{
+        font-size: 22px;
+   }
+   nav ul li a:hover, nav ul li a.active{
+        background: none;
+        color: rgb(179, 108, 108);
+   }
+
+   #click:checked ~ ul{
+    left: 0%;
+}
+
+#click:checked ~ .menu-btn i::before{
+    content: "\f00d";
+    color: #2267a8;
+    font-size: 28px;
+}
+
+
 }
