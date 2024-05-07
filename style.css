@@ -593,12 +593,12 @@ footer {
 	nav ul li a:hover,
 	nav ul li a.active {
 		background: none;
-		color: rgb(179, 108, 108);
+		color: #fac031;
 	}
 	nav ul li a::after{
 		content: '';
 		
-		background: #fac031;
+		
 		display: none;
 		transition: 0.2s linear;
 	}
