@@ -12,24 +12,38 @@
 
 body {
 	font-family: "Montserrat", sans-serif;
+	/* height: 100vh; */
 }
 
 /* menu bar css */
 
 nav {
-	display: flex;
+	/* display: flex;
 	background-color: #1c2833;
 	height: 80px;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0px 50px 0px 80px;
+	padding: 0px 50px 0px 80px; */
+	background-color:#e2e6ea;
+	height: 70px;
+	width: 100%;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+	padding: 0px 50px 0px 70px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+
 }
 
 .logo {
 	font-size: 25px;
 	font-weight: bold;
-	color: white;
+	color: rgb(9, 1, 1);
 }
 
 nav ul {
@@ -38,22 +52,49 @@ nav ul {
 
 nav ul li {
 	list-style-type: none;
-	margin: 0 8px;
+	/* margin: 0 8px; */
+	display: inline-block;
+    margin: 0 15px;
 }
 nav ul li a {
-	text-decoration: none;
+	/* text-decoration: none;
 	font-size: 18px;
 	font-weight: 500;
 	color: white;
 	padding: 7px 13px;
 	border-radius: 3px;
 	transition: 0.5s;
-	text-transform: uppercase;
+	text-transform: uppercase; */
+	text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 17px;
+    transition: 0.1s;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-	background-color: #2267a8;
+ nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 17px;
+    transition: 0.1s;
+}
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #fac031;
+    display: block;
+    transition: 0.2s linear;
+}
+
+ nav ul li a:hover::after{
+    width: 100%;
+}
+
+nav ul li a:hover{
+    color: #fac031;
 }
 
 .menu-btn {
@@ -71,7 +112,7 @@ nav ul li a.active {
 
 header {
 	background-image: url("images/banner.jpg");
-	height: 90vh;
+	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -99,6 +140,7 @@ header {
 	grid-template-columns: repeat(3, 1fr);
 	margin: 0 auto;
 	grid-gap: 25px;
+	
 }
 
 .single-service {
@@ -108,7 +150,16 @@ header {
 	padding: 30px 20px;
 	border-radius: 5px;
 	border: 3px solid green;
+	transition: 0.3s;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	
+}
+
+
+
+.single-service:hover{
 	box-shadow: 5px 5px 10px grey;
+	transform: scale(1.1);
 }
 .single-service i {
 	font-size: 40px;
@@ -116,6 +167,13 @@ header {
 .single-service h2 {
 	margin: 10px 0;
 	font-weight: bold;
+}
+
+
+
+gallary_image:hover {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Second section  code start */
@@ -145,7 +203,7 @@ header {
 	margin: 20px 0;
 	font-size: 30px;
 }
-.smart-text a {
+/* .smart-text a {   // this is as worked as button
 	text-decoration: none;
 	font-size: 22px;
 	background-color: bisque;
@@ -154,7 +212,34 @@ header {
 	border-radius: 5px;
 	display: inline-block;
 	margin-top: 40px;
+} */
+
+.main_btn{
+    background: #fac031;
+    position: relative;
+    padding: 10px 30px;
+	border-radius: 5px;
+	display: inline-block;
+	margin-top: 40px;
+    cursor: pointer;
+    
 }
+
+ .main_btn a{
+    color: #fff;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+ .main_btn i{
+    color: #fff;
+    transition: 0.3s;
+}
+
+ .main_btn:hover i{
+    transform: translateX(7px);
+}
+
 
 /* Third section code start */
 
@@ -179,19 +264,54 @@ header {
 	margin-bottom: 20px;
 }
 .more-about-vanilla ul {
-	margin: 20px 0;
+	margin: 30px 0;
 	list-style-position: inside;
 }
-.more-about-vanilla a {
-	text-decoration: none;
-	font-size: 18px;
-	background-color: yellow;
-	padding: 10px 30px;
-	display: inline-block;
-	margin-top: 20px;
-	border-radius: 5px;
-	color: black;
+.more-about-vanilla ul li{
+	line-height: 32px;
 }
+
+
+.more-about-vanilla .button {
+	display: inline-block;
+	border-radius: 4px;
+	background-color:rgb(142, 142, 27);
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 25px;
+	padding: 15px 25px;
+	/* width: 200px; */
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+  }
+  
+  .button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+  
+  .button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+  }
+  
+  .button:hover span {
+	padding-right: 30px;
+  }
+  
+  .button:hover span:after {
+	opacity: 1;
+	right: 0;
+  }
+
 
 #about-single-items-parent {
 	display: grid;
